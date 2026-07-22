@@ -245,14 +245,20 @@ html, body {
 .tile-icon {
   width: 42px;
   height: 42px;
-  border: 2px inset var(--gray-dark);
-  background: var(--gray-light);
+  border: 2px solid;
+  border-color: var(--gray-darker) var(--white) var(--white) var(--gray-darker);
+  background: var(--gray);
+  box-shadow: inset 2px 2px 2px rgba(0,0,0,0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-family: "Press Start 2P", "Courier New", monospace;
+  font-size: 13px;
   color: var(--accent-blue);
   font-weight: bold;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .tile-label {
