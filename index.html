@@ -73,7 +73,7 @@
           <span class="tile-label">PROJECTS</span>
         </button>
         <button class="nav-tile" data-open="window-tech">
-          <span class="tile-icon">&lt;/&gt;</span>
+          <span class="tile-icon tile-icon--code">&lt;/&gt;</span>
           <span class="tile-label">TECHNOLOGIES</span>
         </button>
         <button class="nav-tile" data-open="window-about">
@@ -138,14 +138,14 @@
 
             <div class="app-preview">
               <div class="app-preview-bar"><span class="app-preview-dot"></span><span class="app-preview-name">TKN Paper Bags</span><button class="app-preview-close" tabindex="-1">&times;</button></div>
-              <div class="app-preview-url"><span class="url-label">URL</span><span class="url-value">tknpaperbags.com</span></div>
+              <div class="app-preview-url"><span class="url-label">URL</span><a class="url-value" href="https://tknpaperbags.com" target="_blank" rel="noopener">tknpaperbags.com</a></div>
               <div class="app-preview-img" style="background-image:url('assets/projects/tkn-paper-bags.png'); background-position: top center;"></div>
               <div class="app-preview-meta"><span>E-COMMERCE &middot; NEXT.JS</span><a class="ext-link" href="https://tknpaperbags.com" target="_blank" rel="noopener">&#8599;</a></div>
             </div>
 
             <div class="app-preview">
               <div class="app-preview-bar"><span class="app-preview-dot"></span><span class="app-preview-name">Maple Trade Corp</span><button class="app-preview-close" tabindex="-1">&times;</button></div>
-              <div class="app-preview-url"><span class="url-label">URL</span><span class="url-value">mapletradecorp.com</span></div>
+              <div class="app-preview-url"><span class="url-label">URL</span><a class="url-value" href="https://mapletradecorp.com" target="_blank" rel="noopener">mapletradecorp.com</a></div>
               <div class="app-preview-img" style="background-image:url('assets/projects/maple-trade-corp.png'); background-position: top center;"></div>
               <div class="app-preview-meta"><span>E-COMMERCE &middot; NEXT.JS</span><a class="ext-link" href="https://mapletradecorp.com" target="_blank" rel="noopener">&#8599;</a></div>
             </div>
@@ -223,7 +223,7 @@
 
       <div class="section-label"><span class="tick"></span><span class="label-text">TOOLS &amp; PLATFORMS</span><span class="rule"></span></div>
       <div class="chip-row">
-        <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">Stripe API</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Expo</span>
+        <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Expo</span>
       </div>
     </div>
     <footer class="statusbar"><span>Ready</span><span>Technologies</span></footer>
@@ -260,10 +260,8 @@
 
     <div class="win-body">
       <div class="about-grid">
-        <label class="photo-drop" id="photo-drop">
-          <span class="photo-drop-icon">&#128247;</span>
-          <span>Drop a photo of yourself</span>
-          <span>or <span class="browse-link">browse files</span></span>
+        <label class="photo-drop has-photo" id="photo-drop">
+          <img src="assets/photo.jpg" alt="Paul Nguyen">
           <input type="file" accept="image/*" id="photo-input" hidden>
         </label>
 
@@ -366,8 +364,8 @@
       </div>
 
       <div style="text-align:center;">
-        <a class="retro-btn" href="resume.pdf" download>Download Resume</a>
-        <p class="hint-text">Add your resume file as <code>resume.pdf</code> in this folder.</p>
+        <button class="retro-btn" data-open="window-resume-view">View Resume</button>
+        <a class="retro-btn" href="resume.pdf" download="Paul_Nguyen_Resume.pdf">Download Resume</a>
       </div>
     </div>
     <footer class="statusbar"><span>Ready</span><span>Resume</span></footer>
@@ -442,6 +440,28 @@
       </div>
     </div>
     <footer class="statusbar"><span id="ms-status">Left-click to reveal &middot; Right-click to flag</span></footer>
+  </section>
+
+  <!-- ===================== RESUME VIEWER WINDOW ===================== -->
+  <section class="win hidden" id="window-resume-view" data-taskbar-label="Resume.pdf" style="left:22vw; top:6vh; width:min(760px,92vw);">
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <span class="title-icon">&#9776;</span>
+        <span class="title-text">PAUL_NGUYEN_RESUME.PDF</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="tb-btn" data-action="minimize">_</button>
+        <button class="tb-btn" data-action="maximize">&#9633;</button>
+        <button class="tb-btn tb-close" data-action="close">X</button>
+      </div>
+    </header>
+    <div class="win-body pdf-body">
+      <iframe class="pdf-frame" src="resume.pdf#toolbar=1&view=FitH" title="Paul Nguyen resume"></iframe>
+    </div>
+    <footer class="statusbar">
+      <span>resume.pdf</span>
+      <span><a class="retro-link" href="resume.pdf" download="Paul_Nguyen_Resume.pdf">Download</a></span>
+    </footer>
   </section>
 
 </div>

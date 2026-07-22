@@ -261,6 +261,11 @@ html, body {
   image-rendering: crisp-edges;
 }
 
+.tile-icon--code {
+  font-size: 8px;
+  letter-spacing: 0;
+}
+
 .tile-label {
   font-size: 11px;
   font-weight: bold;
@@ -703,7 +708,8 @@ html, body {
   color: #555;
 }
 .url-label { font-weight: bold; color: #999; }
-.url-value { color: var(--accent-blue); }
+.url-value { color: var(--accent-blue); text-decoration: none; }
+a.url-value:hover { text-decoration: underline; }
 .url-value.placeholder { color: #999; font-style: italic; }
 
 .app-preview-img {
@@ -829,10 +835,30 @@ html, body {
   padding: 10px;
 }
 .photo-drop-icon { font-size: 26px; }
-.photo-drop img { width: 100%; height: 100%; object-fit: cover; }
+.photo-drop.has-photo { padding: 0; border-style: solid; }
+.photo-drop img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; transform: scale(1.13); }
 .browse-link { color: var(--accent-blue); text-decoration: underline; }
 
 .about-bio p { font-size: 13px; line-height: 1.6; margin: 0 0 10px; color: #222; }
+
+/* =========================================================
+   PDF viewer window
+   ========================================================= */
+.pdf-body {
+  padding: 4px;
+  background: #fff;
+  color: #000;
+  max-height: none;
+}
+.pdf-frame {
+  display: block;
+  width: 100%;
+  height: 74vh;
+  border: 2px solid;
+  border-color: var(--gray-darker) var(--white) var(--white) var(--gray-darker);
+  background: #fff;
+}
+.win.maximized .pdf-frame { height: calc(100vh - 40px - 26px - 22px - 8px); }
 
 /* =========================================================
    Print

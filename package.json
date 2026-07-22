@@ -1,0 +1,10 @@
+{
+  "name": "paul-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Windows-98 themed portfolio site for Paul Nguyen",
+  "scripts": {
+    "dev": "python -m http.server 5173",
+    "start": "python -m http.server 5173"
+  }
+}
