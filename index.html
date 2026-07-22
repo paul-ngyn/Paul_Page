@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paul Nguyen :: Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="desktop">
+
+  <!-- Desktop icons -->
+  <div class="desktop-icons">
+    <button class="desktop-icon" data-open="window-projects">
+      <span class="d-icon-glyph">&#9638;</span>
+      <span class="d-icon-label">Projects</span>
+    </button>
+    <button class="desktop-icon" data-open="window-tech">
+      <span class="d-icon-glyph">&lt;/&gt;</span>
+      <span class="d-icon-label">Technologies</span>
+    </button>
+    <button class="desktop-icon" data-open="window-about">
+      <span class="d-icon-glyph">?</span>
+      <span class="d-icon-label">About Me</span>
+    </button>
+    <button class="desktop-icon" data-open="window-resume">
+      <span class="d-icon-glyph">&#9776;</span>
+      <span class="d-icon-label">Resume</span>
+    </button>
+    <button class="desktop-icon" data-open="window-contact">
+      <span class="d-icon-glyph">@</span>
+      <span class="d-icon-label">Contact</span>
+    </button>
+    <button class="desktop-icon" data-open="window-minesweeper">
+      <span class="d-icon-glyph">&#10035;</span>
+      <span class="d-icon-label">Minesweeper</span>
+    </button>
+  </div>
+
+  <!-- shared menubar+tabbar markup is repeated per-window so each window is fully self-contained -->
+
+  <!-- ===================== HOME / WELCOME WINDOW ===================== -->
+  <section class="win" id="window-welcome" data-taskbar-label="Home" style="left:5vw; top:3vh; width:min(940px, 94vw);">
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <span class="title-icon">P</span>
+        <span class="title-text">HOME &mdash; PAUL_NGUYEN.EXE</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="tb-btn" data-action="minimize" aria-label="Minimize">_</button>
+        <button class="tb-btn" data-action="maximize" aria-label="Maximize">&#9633;</button>
+        <button class="tb-btn tb-close" data-action="close" aria-label="Close">X</button>
+      </div>
+    </header>
+
+    <div class="menubar">
+      <span class="menu-item"><u>F</u>ile</span>
+      <span class="menu-item"><u>E</u>dit</span>
+      <span class="menu-item"><u>V</u>iew</span>
+      <span class="menu-item"><u>H</u>elp</span>
+    </div>
+    <nav class="tabbar">
+      <button class="tab-btn active" data-open="window-welcome">Home</button>
+      <button class="tab-btn" data-open="window-projects">Projects</button>
+      <button class="tab-btn" data-open="window-tech">Technologies</button>
+      <button class="tab-btn" data-open="window-about">About Me</button>
+      <button class="tab-btn" data-open="window-resume">Resume</button>
+      <button class="tab-btn" data-open="window-contact">Contact</button>
+    </nav>
+
+    <div class="win-body welcome-body">
+      <p class="eyebrow">&#9670; WELCOME TO &#9670;</p>
+      <h1 class="pixel-name">PAUL<br>NGUYEN</h1>
+      <p class="role">FULL STACK DEVELOPER</p>
+
+      <nav class="button-grid">
+        <button class="nav-tile" data-open="window-projects">
+          <span class="tile-icon">&#9638;</span>
+          <span class="tile-label">PROJECTS</span>
+        </button>
+        <button class="nav-tile" data-open="window-tech">
+          <span class="tile-icon">&lt;/&gt;</span>
+          <span class="tile-label">TECHNOLOGIES</span>
+        </button>
+        <button class="nav-tile" data-open="window-about">
+          <span class="tile-icon">?</span>
+          <span class="tile-label">ABOUT ME</span>
+        </button>
+        <button class="nav-tile" data-open="window-resume">
+          <span class="tile-icon">&#9776;</span>
+          <span class="tile-label">RESUME</span>
+        </button>
+        <button class="nav-tile" data-open="window-contact">
+          <span class="tile-icon">@</span>
+          <span class="tile-label">CONTACT</span>
+        </button>
+        <button class="nav-tile" data-open="window-minesweeper">
+          <span class="tile-icon">&#10035;</span>
+          <span class="tile-label">MINESWEEPER</span>
+        </button>
+      </nav>
+    </div>
+
+    <footer class="statusbar">
+      <span>System ready</span>
+      <span>6 items</span>
+    </footer>
+  </section>
+
+  <!-- ===================== PROJECTS WINDOW ===================== -->
+  <section class="win hidden" id="window-projects" data-taskbar-label="Projects" style="left:7vw; top:6vh; width:min(980px,95vw);">
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <span class="title-icon">P</span>
+        <span class="title-text">PROJECTS &mdash; PAUL_NGUYEN.EXE</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="tb-btn" data-action="minimize">_</button>
+        <button class="tb-btn" data-action="maximize">&#9633;</button>
+        <button class="tb-btn tb-close" data-action="close">X</button>
+      </div>
+    </header>
+
+    <div class="menubar">
+      <span class="menu-item"><u>F</u>ile</span>
+      <span class="menu-item"><u>E</u>dit</span>
+      <span class="menu-item"><u>V</u>iew</span>
+      <span class="menu-item"><u>H</u>elp</span>
+    </div>
+    <nav class="tabbar">
+      <button class="tab-btn" data-open="window-welcome">Home</button>
+      <button class="tab-btn active" data-open="window-projects">Projects</button>
+      <button class="tab-btn" data-open="window-tech">Technologies</button>
+      <button class="tab-btn" data-open="window-about">About Me</button>
+      <button class="tab-btn" data-open="window-resume">Resume</button>
+      <button class="tab-btn" data-open="window-contact">Contact</button>
+    </nav>
+
+    <div class="win-body">
+      <div class="panel">
+        <div class="panel-header">MY WEB APPS</div>
+        <div class="panel-body">
+          <div class="app-preview-grid">
+
+            <div class="app-preview">
+              <div class="app-preview-bar"><span class="app-preview-dot"></span><span class="app-preview-name">TKN Paper Bags</span><button class="app-preview-close" tabindex="-1">&times;</button></div>
+              <div class="app-preview-url"><span class="url-label">URL</span><span class="url-value">tknpaperbags.com</span></div>
+              <div class="app-preview-img" style="background-image:url('assets/projects/tkn-paper-bags.png'); background-position: top center;"></div>
+              <div class="app-preview-meta"><span>E-COMMERCE &middot; NEXT.JS</span><a class="ext-link" href="https://tknpaperbags.com" target="_blank" rel="noopener">&#8599;</a></div>
+            </div>
+
+            <div class="app-preview">
+              <div class="app-preview-bar"><span class="app-preview-dot"></span><span class="app-preview-name">Maple Trade Corp</span><button class="app-preview-close" tabindex="-1">&times;</button></div>
+              <div class="app-preview-url"><span class="url-label">URL</span><span class="url-value">mapletradecorp.com</span></div>
+              <div class="app-preview-img" style="background-image:url('assets/projects/maple-trade-corp.png'); background-position: top center;"></div>
+              <div class="app-preview-meta"><span>E-COMMERCE &middot; NEXT.JS</span><a class="ext-link" href="https://mapletradecorp.com" target="_blank" rel="noopener">&#8599;</a></div>
+            </div>
+
+            <div class="app-preview">
+              <div class="app-preview-bar"><span class="app-preview-dot"></span><span class="app-preview-name">Untitled Project</span><button class="app-preview-close" tabindex="-1">&times;</button></div>
+              <div class="app-preview-url"><span class="url-label">URL</span><span class="url-value placeholder">coming-soon...</span></div>
+              <div class="app-preview-img checkerboard"><span class="wip-badge">WIP</span></div>
+              <div class="app-preview-meta"><span>SAAS &middot; NEXT.JS &middot; EXPO &middot; IN PROGRESS&hellip;</span></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">PROJECTS</div>
+        <div class="panel-body">
+          <div class="text-projects">
+            <div class="text-project">
+              <h4>LLM Evaluation Harness</h4>
+              <p>Full-stack platform to define test suites and benchmark models side-by-side with four scoring strategies.</p>
+            </div>
+            <div class="text-project">
+              <h4>Database Management System</h4>
+              <p>A C++ engine with CRUD over JSON &amp; CSV files, key-value search and JSONPath queries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="statusbar"><span>Ready</span><span>Projects</span></footer>
+  </section>
+
+  <!-- ===================== TECHNOLOGIES WINDOW ===================== -->
+  <section class="win hidden" id="window-tech" data-taskbar-label="Technologies" style="left:10vw; top:8vh; width:min(680px,92vw);">
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <span class="title-icon">P</span>
+        <span class="title-text">TECHNOLOGIES &mdash; PAUL_NGUYEN.EXE</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="tb-btn" data-action="minimize">_</button>
+        <button class="tb-btn" data-action="maximize">&#9633;</button>
+        <button class="tb-btn tb-close" data-action="close">X</button>
+      </div>
+    </header>
+
+    <div class="menubar">
+      <span class="menu-item"><u>F</u>ile</span>
+      <span class="menu-item"><u>E</u>dit</span>
+      <span class="menu-item"><u>V</u>iew</span>
+      <span class="menu-item"><u>H</u>elp</span>
+    </div>
+    <nav class="tabbar">
+      <button class="tab-btn" data-open="window-welcome">Home</button>
+      <button class="tab-btn" data-open="window-projects">Projects</button>
+      <button class="tab-btn active" data-open="window-tech">Technologies</button>
+      <button class="tab-btn" data-open="window-about">About Me</button>
+      <button class="tab-btn" data-open="window-resume">Resume</button>
+      <button class="tab-btn" data-open="window-contact">Contact</button>
+    </nav>
+
+    <div class="win-body">
+      <div class="section-label"><span class="tick"></span><span class="label-text">LANGUAGES</span><span class="rule"></span></div>
+      <div class="chip-row">
+        <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">C++</span><span class="chip">SQL</span><span class="chip">HTML/CSS</span>
+      </div>
+
+      <div class="section-label"><span class="tick"></span><span class="label-text">FRAMEWORKS &amp; LIBRARIES</span><span class="rule"></span></div>
+      <div class="chip-row">
+        <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">React Native</span><span class="chip">Node.js</span><span class="chip">Express</span>
+      </div>
+
+      <div class="section-label"><span class="tick"></span><span class="label-text">TOOLS &amp; PLATFORMS</span><span class="rule"></span></div>
+      <div class="chip-row">
+        <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">Stripe API</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Expo</span>
+      </div>
+    </div>
+    <footer class="statusbar"><span>Ready</span><span>Technologies</span></footer>
+  </section>
+
+  <!-- ===================== ABOUT ME WINDOW ===================== -->
+  <section class="win hidden" id="window-about" data-taskbar-label="About Me" style="left:13vw; top:10vh; width:min(880px,94vw);">
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <span class="title-icon">P</span>
+        <span class="title-text">ABOUT ME &mdash; PAUL_NGUYEN.EXE</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="tb-btn" data-action="minimize">_</button>
+        <button class="tb-btn" data-action="maximize">&#9633;</button>
+        <button class="tb-btn tb-close" data-action="close">X</button>
+      </div>
+    </header>
+
+    <div class="menubar">
+      <span class="menu-item"><u>F</u>ile</span>
+      <span class="menu-item"><u>E</u>dit</span>
+      <span class="menu-item"><u>V</u>iew</span>
+      <span class="menu-item"><u>H</u>elp</span>
+    </div>
+    <nav class="tabbar">
+      <button class="tab-btn" data-open="window-welcome">Home</button>
+      <button class="tab-btn" data-open="window-projects">Projects</button>
+      <button class="tab-btn" data-open="window-tech">Technologies</button>
+      <button class="tab-btn active" data-open="window-about">About Me</button>
+      <button class="tab-btn" data-open="window-resume">Resume</button>
+      <button class="tab-btn" data-open="window-contact">Contact</button>
+    </nav>
+
+    <div class="win-body">
+      <div class="about-grid">
+        <label class="photo-drop" id="photo-drop">
+          <span class="photo-drop-icon">&#128247;</span>
+          <span>Drop a photo of yourself</span>
+          <span>or <span class="browse-link">browse files</span></span>
+          <input type="file" accept="image/*" id="photo-input" hidden>
+        </label>
+
+        <div>
+          <div class="section-label"><span class="tick"></span><span class="label-text">ABOUT ME</span><span class="rule"></span></div>
+          <div class="about-bio">
+            <p>Full-stack developer based in Alameda, CA. I build production web apps end-to-end &mdash; from Next.js e-commerce platforms to React Native mobile apps and LLM-powered tools.</p>
+            <p>A UC Riverside CS grad, I care about clean architecture, hardened APIs, and fast, polished interfaces. When I'm not shipping, I'm usually poking at new models and small side projects.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">EDUCATION</div>
+        <div class="panel-body">
+          <div class="resume-entry">
+            <div class="entry-logo ucr"><img src="assets/logos/ucr.png" alt="UC Riverside logo"></div>
+            <div class="entry-body">
+              <div class="entry-head">
+                <span class="entry-title">UC Riverside</span>
+              </div>
+              <p class="entry-desc">B.S. Computer Science with Business Applications &middot; 2020 &ndash; 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="statusbar"><span>Ready</span><span>About Me</span></footer>
+  </section>
+
+  <!-- ===================== RESUME WINDOW ===================== -->
+  <section class="win hidden" id="window-resume" data-taskbar-label="Resume" style="left:16vw; top:12vh; width:min(880px,94vw);">
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <span class="title-icon">P</span>
+        <span class="title-text">RESUME &mdash; PAUL_NGUYEN.EXE</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="tb-btn" data-action="minimize">_</button>
+        <button class="tb-btn" data-action="maximize">&#9633;</button>
+        <button class="tb-btn tb-close" data-action="close">X</button>
+      </div>
+    </header>
+
+    <div class="menubar">
+      <span class="menu-item"><u>F</u>ile</span>
+      <span class="menu-item"><u>E</u>dit</span>
+      <span class="menu-item"><u>V</u>iew</span>
+      <span class="menu-item"><u>H</u>elp</span>
+    </div>
+    <nav class="tabbar">
+      <button class="tab-btn" data-open="window-welcome">Home</button>
+      <button class="tab-btn" data-open="window-projects">Projects</button>
+      <button class="tab-btn" data-open="window-tech">Technologies</button>
+      <button class="tab-btn" data-open="window-about">About Me</button>
+      <button class="tab-btn active" data-open="window-resume">Resume</button>
+      <button class="tab-btn" data-open="window-contact">Contact</button>
+    </nav>
+
+    <div class="win-body">
+      <div class="panel">
+        <div class="panel-header">EMPLOYMENT</div>
+        <div class="panel-body">
+          <div class="resume-entry">
+            <div class="entry-logo mtc"><img src="assets/logos/mtc.png" alt="Maple Trade Corporation logo"></div>
+            <div class="entry-body">
+              <div class="entry-head">
+                <span class="entry-title">Full Stack Developer &mdash; Maple Trade Corporation</span>
+                <span class="entry-date">APR 2025 &ndash; JUN 2026</span>
+              </div>
+              <p class="entry-desc">Built and shipped two full-stack Next.js e-commerce platforms and a React Native mobile hub for restaurant distributors, with Stripe payments and hardened REST APIs.</p>
+            </div>
+          </div>
+          <div class="resume-entry">
+            <div class="entry-logo belto"><img src="assets/logos/belto.png" alt="Belto logo"></div>
+            <div class="entry-body">
+              <div class="entry-head">
+                <span class="entry-title">Frontend Developer &mdash; Belto</span>
+                <span class="entry-date">APR 2024 &ndash; JAN 2025</span>
+              </div>
+              <p class="entry-desc">Led frontend of a React/Next.js chatbot platform for 600+ UC students and built LLM-powered REST endpoints with Node.js and Express.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">EDUCATION</div>
+        <div class="panel-body">
+          <div class="resume-entry">
+            <div class="entry-logo ucr"><img src="assets/logos/ucr.png" alt="UC Riverside logo"></div>
+            <div class="entry-body">
+              <div class="entry-head">
+                <span class="entry-title">UC Riverside</span>
+              </div>
+              <p class="entry-desc">B.S. Computer Science with Business Applications &middot; 2020 &ndash; 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <a class="retro-btn" href="resume.pdf" download>Download Resume</a>
+        <p class="hint-text">Add your resume file as <code>resume.pdf</code> in this folder.</p>
+      </div>
+    </div>
+    <footer class="statusbar"><span>Ready</span><span>Resume</span></footer>
+  </section>
+
+  <!-- ===================== CONTACT WINDOW ===================== -->
+  <section class="win hidden" id="window-contact" data-taskbar-label="Contact" style="left:19vw; top:14vh; width:min(560px,90vw);">
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <span class="title-icon">P</span>
+        <span class="title-text">CONTACT &mdash; PAUL_NGUYEN.EXE</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="tb-btn" data-action="minimize">_</button>
+        <button class="tb-btn" data-action="maximize">&#9633;</button>
+        <button class="tb-btn tb-close" data-action="close">X</button>
+      </div>
+    </header>
+
+    <div class="menubar">
+      <span class="menu-item"><u>F</u>ile</span>
+      <span class="menu-item"><u>E</u>dit</span>
+      <span class="menu-item"><u>V</u>iew</span>
+      <span class="menu-item"><u>H</u>elp</span>
+    </div>
+    <nav class="tabbar">
+      <button class="tab-btn" data-open="window-welcome">Home</button>
+      <button class="tab-btn" data-open="window-projects">Projects</button>
+      <button class="tab-btn" data-open="window-tech">Technologies</button>
+      <button class="tab-btn" data-open="window-about">About Me</button>
+      <button class="tab-btn" data-open="window-resume">Resume</button>
+      <button class="tab-btn active" data-open="window-contact">Contact</button>
+    </nav>
+
+    <div class="win-body">
+      <div class="section-label"><span class="tick"></span><span class="label-text">GET IN TOUCH</span><span class="rule"></span></div>
+      <ul class="contact-list">
+        <li><span class="contact-label">Email:</span> <a class="retro-link" href="mailto:paul@example.com">paul@example.com</a></li>
+        <li><span class="contact-label">GitHub:</span> <a class="retro-link" href="#" target="_blank" rel="noopener">github.com/paulnguyen</a></li>
+        <li><span class="contact-label">LinkedIn:</span> <a class="retro-link" href="#" target="_blank" rel="noopener">linkedin.com/in/paulnguyen</a></li>
+      </ul>
+    </div>
+    <footer class="statusbar"><span>Ready</span><span>Contact</span></footer>
+  </section>
+
+  <!-- ===================== MINESWEEPER WINDOW ===================== -->
+  <section class="win hidden" id="window-minesweeper" data-taskbar-label="&#10035; Minesweeper" style="left:34vw; top:20vh; width:max-content;">
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <span class="title-icon">&#10035;</span>
+        <span class="title-text">MINESWEEPER</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="tb-btn" data-action="minimize">_</button>
+        <button class="tb-btn" data-action="maximize">&#9633;</button>
+        <button class="tb-btn tb-close" data-action="close">X</button>
+      </div>
+    </header>
+    <div class="win-body ms-body">
+      <div class="ms-toolbar">
+        <div class="ms-counter" id="ms-mine-count">010</div>
+        <button class="ms-smiley" id="ms-smiley" aria-label="Reset game">&#128578;</button>
+        <div class="ms-counter" id="ms-timer">000</div>
+      </div>
+      <div class="ms-difficulty">
+        <button class="retro-btn small" data-level="beginner">Beginner</button>
+        <button class="retro-btn small" data-level="intermediate">Intermediate</button>
+        <button class="retro-btn small" data-level="expert">Expert</button>
+      </div>
+      <div class="ms-grid-frame">
+        <div class="ms-grid" id="ms-grid"></div>
+      </div>
+    </div>
+    <footer class="statusbar"><span id="ms-status">Left-click to reveal &middot; Right-click to flag</span></footer>
+  </section>
+
+</div>
+
+<!-- ===================== START MENU ===================== -->
+<div class="start-menu hidden" id="start-menu">
+  <div class="start-menu-side">PAUL NGUYEN</div>
+  <div class="start-menu-items">
+    <button data-open="window-welcome">&#127968; Home</button>
+    <button data-open="window-projects">&#9638; Projects</button>
+    <button data-open="window-tech">&lt;/&gt; Technologies</button>
+    <button data-open="window-about">? About Me</button>
+    <button data-open="window-resume">&#9776; Resume</button>
+    <button data-open="window-contact">@ Contact</button>
+    <button data-open="window-minesweeper">&#10035; Minesweeper</button>
+  </div>
+</div>
+
+<!-- ===================== TASKBAR ===================== -->
+<footer id="taskbar">
+  <button id="start-btn"><span class="start-flag">&#9724;&#9724;</span> Start</button>
+  <div id="taskbar-items"></div>
+  <div id="taskbar-clock">9:20 PM</div>
+</footer>
+
+<script src="js/minesweeper.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
