@@ -5,7 +5,7 @@ A personal portfolio site styled as a **Windows 98 desktop**. Each section
 minimizable window, and there's a fully playable **Minesweeper** clone tucked in
 the Start menu.
 
-🔗 **Live site:** [_add your deployed URL here_](https://impaul.vercel.app/)
+🔗 **Live site:** [Vercel Link](https://impaul.vercel.app/)
 
 ![Screenshot](assets/portpage_ss.png)
 
