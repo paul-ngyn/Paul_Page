@@ -13,7 +13,6 @@
 
   const powerPrompt = document.getElementById('boot-power');
   const postEl = document.getElementById('boot-post');
-  const progressBar = document.getElementById('boot-progress-bar');
 
   const reduceMotion =
     window.matchMedia &&
@@ -68,12 +67,22 @@
   async function runSplash() {
     screen.classList.remove('phase-post');
     screen.classList.add('phase-splash');
-    // let the layout settle, then fill the bar
+    // hold the splash for the same beat the progress bar used to take
     await wait(60);
     const total = reduceMotion ? 250 : 2200;
-    progressBar.style.transition = `width ${total}ms linear`;
-    progressBar.style.width = '100%';
     await wait(total + 250);
+  }
+
+  // ---------------- black smiley screen ----------------
+  async function runSmiley() {
+    screen.classList.remove('phase-splash');
+    screen.classList.add('phase-smiley');
+    // blink for the main hold ...
+    await wait(reduceMotion ? 200 : 4000);
+    // ... then freeze the underscore solid for a clear beat before the transition
+    const cursor = document.querySelector('.boot-smiley-cursor');
+    if (cursor) cursor.classList.add('cursor-frozen');
+    await wait(reduceMotion ? 250 : 1000);
   }
 
   // ---------------- fade to desktop ----------------
@@ -140,6 +149,8 @@
     if (skipped) return;
     await runSplash();
     if (skipped) return;
+    await runSmiley();
+    if (skipped) return;
     await fadeOut();
     if (skipped) return;
     await revealWelcome();
@@ -155,13 +166,19 @@
     revealWelcome();
   }
 
-  // A single handler so one click does exactly one thing:
-  // the first click powers on; any later click skips ahead.
+  // Clicking the screen only powers on (the first interaction);
+  // it no longer skips the intro once running.
   screen.addEventListener('click', () => {
-    if (!started) {
-      boot();
-    } else if (!revealed) {
-      skip();
-    }
+    if (!started) boot();
   });
+
+  // Skipping is handled solely by the dedicated bottom-right button.
+  const skipBtn = document.getElementById('boot-skip');
+  if (skipBtn) {
+    skipBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!started || revealed) return;
+      skip();
+    });
+  }
 })();

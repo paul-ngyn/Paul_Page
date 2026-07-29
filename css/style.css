@@ -911,7 +911,8 @@ a.url-value:hover { text-decoration: underline; }
   z-index: 4;
 }
 #boot-screen.phase-post .boot-power,
-#boot-screen.phase-splash .boot-power { display: none; }
+#boot-screen.phase-splash .boot-power,
+#boot-screen.phase-smiley .boot-power { display: none; }
 
 .boot-power-inner {
   text-align: center;
@@ -981,7 +982,7 @@ a.url-value:hover { text-decoration: underline; }
 .boot-splash-logo { text-align: center; }
 .boot-fish {
   display: block;
-  width: 150px;
+  width: 180px;
   height: auto;
   margin: 0 auto 18px;
   image-rendering: auto;
@@ -992,51 +993,113 @@ a.url-value:hover { text-decoration: underline; }
   50% { transform: translateY(-8px); }
 }
 
-.boot-splash-title {
-  font-family: "Press Start 2P", monospace;
-  font-size: clamp(22px, 5vw, 40px);
-  color: #fff;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 0 #000080, -1px -1px 0 #000080, 1px -1px 0 #000080, -1px 1px 0 #000080, 3px 4px 6px rgba(0,0,0,0.4);
+/* ---- Windows-98-logo-style wordmark ---- */
+.boot-splash-brand {
+  display: inline-block;
+  text-align: left;
+  line-height: 0.9;
 }
-.boot-splash-95 {
-  color: #ffcc00;
-  margin-left: 10px;
+.boot-splash-maker {
+  display: block;
+  font-family: "Archivo", "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(16px, 3.6vw, 29.6px);
+  color: #000;
+  letter-spacing: 0.5px;
+  margin-left: 3px;
+  margin-bottom: -0.12em;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.35);
+}
+.boot-splash-title {
+  font-family: "Archivo", "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: clamp(40px, 9vw, 74px);
+  color: #000;
+  letter-spacing: -1px;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.25), 1px 1px 0 rgba(255,255,255,0.3);
+}
+.boot-splash-98 {
+  font-weight: 500;
+  font-size: 1em;
+  vertical-align: baseline;
+  margin-left: 6px;
+  letter-spacing: 0;
 }
 .boot-splash-sub {
-  font-family: "Press Start 2P", monospace;
-  font-size: 11px;
-  color: #fff;
-  letter-spacing: 2px;
+  font-family: "Archivo", "Segoe UI", Arial, sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(13px, 1.9vw, 18px);
+  color: #000;
+  letter-spacing: 1px;
   margin-top: 14px;
-  text-shadow: 1px 1px 0 #000080, 1px 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.35);
 }
 
-.boot-progress {
-  width: min(340px, 70vw);
-  height: 22px;
-  border: 2px solid;
-  border-color: #808080 #fff #fff #808080;
+/* ---- black smiley screen (old-Windows style) ---- */
+.boot-smiley {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 26px 34px;
   background: #000;
-  padding: 3px;
+  z-index: 5;
 }
-.boot-progress-bar {
-  height: 100%;
-  width: 0;
-  background: repeating-linear-gradient(
-    to right,
-    #000080 0, #000080 12px,
-    #1084d0 12px, #1084d0 15px
-  );
+#boot-screen.phase-smiley .boot-smiley { display: flex; }
+
+.boot-smiley-cursor,
+.boot-smiley-face {
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #cfcfcf;
 }
-.boot-splash-status {
+.boot-smiley-cursor {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  animation: boot-caret 0.5s steps(1) infinite;
+}
+.boot-smiley-cursor.cursor-frozen {
+  animation: none;
+  opacity: 1;
+  color: #fff;
+  transform: scale(1.25);
+  transform-origin: left center;
+  text-shadow: 0 0 8px rgba(255,255,255,0.75);
+}
+
+/* ---- skip button (bottom-right) ---- */
+.boot-skip {
+  position: absolute;
+  bottom: 18px;
+  right: 20px;
+  z-index: 10;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
   font-family: "Press Start 2P", monospace;
   font-size: 10px;
-  color: #fff;
   letter-spacing: 1px;
-  margin: 0;
-  text-shadow: 1px 1px 0 #000080, 1px 1px 3px rgba(0,0,0,0.5);
+  cursor: pointer;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  transition: color 0.2s ease;
 }
+.boot-skip:hover,
+.boot-skip:focus-visible {
+  color: #fff;
+  outline: none;
+}
+/* nothing to skip before power-on, or once the machine is gone */
+#boot-screen.phase-power .boot-skip { display: none; }
+.boot-smiley-face { letter-spacing: -3px; }
 
 /* ---- welcome-window reveal (name typing + tiles) ---- */
 .pixel-name .type-caret {
