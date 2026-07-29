@@ -10,6 +10,31 @@
 </head>
 <body>
 
+<!-- ===================== BOOT / INTRO SEQUENCE ===================== -->
+<div id="boot-screen" class="phase-power">
+  <!-- power-on prompt -->
+  <div class="boot-power" id="boot-power">
+    <div class="boot-power-inner">
+      <div class="boot-logo-mark">PN</div>
+      <p class="boot-power-text">CLICK TO POWER ON &#9614;</p>
+    </div>
+  </div>
+
+  <!-- BIOS / POST text stream -->
+  <pre class="boot-post" id="boot-post"></pre>
+
+  <!-- Windows-95-style splash -->
+  <div class="boot-splash" id="boot-splash">
+    <div class="boot-splash-logo">
+      <img class="boot-fish" src="assets/boot/fish.png" alt="">
+      <div class="boot-splash-title">Paul&nbsp;Nguyen<span class="boot-splash-95">95</span></div>
+      <div class="boot-splash-sub">PORTFOLIO EDITION</div>
+    </div>
+    <div class="boot-progress"><div class="boot-progress-bar" id="boot-progress-bar"></div></div>
+    <p class="boot-splash-status">Starting Paul Nguyen 95&hellip;</p>
+  </div>
+</div>
+
 <div id="desktop">
 
   <!-- Desktop icons -->
@@ -482,12 +507,13 @@
 
 <!-- ===================== TASKBAR ===================== -->
 <footer id="taskbar">
-  <button id="start-btn"><span class="start-flag">&#9724;&#9724;</span> Start</button>
+  <button id="start-btn"><img class="start-flag-img" src="assets/boot/fish.png" alt=""> Start</button>
   <div id="taskbar-items"></div>
   <div id="taskbar-clock">9:20 PM</div>
 </footer>
 
 <script src="js/minesweeper.js"></script>
 <script src="js/script.js"></script>
+<script src="js/boot.js"></script>
 </body>
 </html>

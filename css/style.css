@@ -547,6 +547,12 @@ html, body {
   border-color: var(--gray-darker) var(--white) var(--white) var(--gray-darker);
 }
 .start-flag { color: var(--navy); font-size: 10px; letter-spacing: -2px; }
+.start-flag-img {
+  height: 22px;
+  width: auto;
+  display: block;
+  image-rendering: auto;
+}
 
 #taskbar-items {
   flex: 1;
@@ -859,6 +865,214 @@ a.url-value:hover { text-decoration: underline; }
   background: #fff;
 }
 .win.maximized .pdf-frame { height: calc(100vh - 40px - 26px - 22px - 8px); }
+
+/* =========================================================
+   Boot / intro sequence
+   ========================================================= */
+#boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: #000;
+  color: #c9c9c9;
+  font-family: "Courier New", monospace;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+#boot-screen.boot-hidden { opacity: 0; pointer-events: none; }
+#boot-screen.boot-gone { display: none; }
+
+/* subtle CRT scanlines over everything */
+#boot-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0,
+    rgba(0,0,0,0) 2px,
+    rgba(0,0,0,0.25) 3px,
+    rgba(0,0,0,0.25) 3px
+  );
+  opacity: 0.35;
+  z-index: 5;
+}
+
+/* ---- power-on prompt ---- */
+.boot-power {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+}
+#boot-screen.phase-post .boot-power,
+#boot-screen.phase-splash .boot-power { display: none; }
+
+.boot-power-inner {
+  text-align: center;
+  color: #d9d9d9;
+}
+.boot-logo-mark {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 22px;
+  border: 4px solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Press Start 2P", monospace;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(160,200,255,0.35);
+}
+.boot-power-text {
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin: 0;
+  animation: boot-pulse 1.4s steps(1) infinite;
+}
+@keyframes boot-pulse { 50% { opacity: 0.25; } }
+
+/* ---- BIOS / POST text ---- */
+.boot-post {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  margin: 0;
+  padding: 26px 34px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #cfcfcf;
+  white-space: pre-wrap;
+  display: none;
+  z-index: 4;
+}
+#boot-screen.phase-post .boot-post { display: block; }
+.boot-post .boot-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 1.05em;
+  background: #cfcfcf;
+  vertical-align: text-bottom;
+  animation: boot-caret 1s steps(1) infinite;
+}
+@keyframes boot-caret { 50% { opacity: 0; } }
+
+/* ---- Windows-95-style splash ---- */
+.boot-splash {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  background: #a9d0f0 url('../assets/cloud.jpeg') center center / cover no-repeat;
+  z-index: 4;
+}
+#boot-screen.phase-splash .boot-splash { display: flex; }
+
+.boot-splash-logo { text-align: center; }
+.boot-fish {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 0 auto 18px;
+  image-rendering: auto;
+  filter: drop-shadow(3px 5px 5px rgba(0,0,0,0.35));
+  animation: boot-fish-float 2.4s ease-in-out infinite;
+}
+@keyframes boot-fish-float {
+  50% { transform: translateY(-8px); }
+}
+
+.boot-splash-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(22px, 5vw, 40px);
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #000080, -1px -1px 0 #000080, 1px -1px 0 #000080, -1px 1px 0 #000080, 3px 4px 6px rgba(0,0,0,0.4);
+}
+.boot-splash-95 {
+  color: #ffcc00;
+  margin-left: 10px;
+}
+.boot-splash-sub {
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-top: 14px;
+  text-shadow: 1px 1px 0 #000080, 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.boot-progress {
+  width: min(340px, 70vw);
+  height: 22px;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  background: #000;
+  padding: 3px;
+}
+.boot-progress-bar {
+  height: 100%;
+  width: 0;
+  background: repeating-linear-gradient(
+    to right,
+    #000080 0, #000080 12px,
+    #1084d0 12px, #1084d0 15px
+  );
+}
+.boot-splash-status {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 1px 1px 0 #000080, 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ---- welcome-window reveal (name typing + tiles) ---- */
+.pixel-name .type-caret {
+  display: inline-block;
+  width: 0.62em;
+  height: 1em;
+  background: #111;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: boot-caret 0.9s steps(1) infinite;
+}
+.pixel-name .type-caret.caret-done { animation: none; opacity: 0; }
+
+.reveal-pending { opacity: 0; }
+.reveal-in {
+  opacity: 1;
+  animation: reveal-fade 0.5s ease both;
+}
+@keyframes reveal-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav-tile.tile-pending { opacity: 0; }
+.nav-tile.tile-in {
+  animation: tile-pop 0.42s cubic-bezier(0.2, 0.9, 0.3, 1.4) both;
+}
+@keyframes tile-pop {
+  from { opacity: 0; transform: translateY(14px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-in, .nav-tile.tile-in { animation: none; }
+  .boot-power-text, .boot-post .boot-cursor, .pixel-name .type-caret { animation: none; }
+}
 
 /* =========================================================
    Print
