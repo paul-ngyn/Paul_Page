@@ -171,6 +171,31 @@
   updateClock();
   setInterval(updateClock, 1000 * 15);
 
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameField = contactForm.querySelector('input[name="name"]');
+      const emailField = contactForm.querySelector('input[name="email"]');
+      const messageField = contactForm.querySelector('textarea[name="message"]');
+      const name = nameField?.value.trim() || '';
+      const email = emailField?.value.trim() || '';
+      const message = messageField?.value.trim() || '';
+
+      if (!name || !email || !message) {
+        formStatus.textContent = 'Please fill out all fields before sending.';
+        return;
+      }
+
+      const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location.href = `mailto:paulngyn512@gmail.com?subject=${subject}&body=${body}`;
+      formStatus.textContent = `Thanks, ${name}! Your email app should open with your message.`;
+      contactForm.reset();
+    });
+  }
+
   // ---- About Me photo dropzone ----
   const photoDrop = document.getElementById('photo-drop');
   const photoInput = document.getElementById('photo-input');

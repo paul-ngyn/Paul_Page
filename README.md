@@ -1,7 +1,7 @@
 # Paul Nguyen — Portfolio
 
 A personal portfolio site styled as a **Windows 98 desktop**. Each section
-(Projects, Technologies, About Me, Resume, Contact) opens as its own draggable,
+(Projects, Technologies, About Me, Resume, Links, Contact) opens as its own draggable,
 minimizable window, and there's a fully playable **Minesweeper** clone tucked in
 the Start menu.
 
